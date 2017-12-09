@@ -1,0 +1,41 @@
+encoding "utf8";               // указываем кодировку, в которой написан этот файл
+
+import "base.proto";           // подключаем описания protobuf-типов (TAuxDicArticle и прочих)
+import "articles_base.proto";  // Файлы base.proto и articles_base.proto встроены в компилятор.
+                               // Их необходимо включать в начало любого gzt-словаря.
+import "facttypes.proto";
+
+TAuxDicArticle "этап глагол"
+{
+	key = { "оформить"
+	| "расчитать"
+	| "продлить"
+	| "заключить"
+	| "создать"}
+}
+
+TAuxDicArticle "этап существительное"
+{
+	key = { "оформление"
+	| "расчет"
+	| "продление"
+	| "заключение"
+	| "создание"}
+}
+
+TAuxDicArticle "объект"
+{
+	key = { "договор"
+	| "полис" }
+}
+
+TAuxDicArticle "название_продукта"
+{
+	key = { "каско"
+	| "осаго" }
+}
+
+TAuxDicArticle "дата"
+{
+    key = { "tomita:date.cxx" type=CUSTOM }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "tomita-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "node %NODE_DEBUG_OPTION% index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knaschekin/tomita-service.git"
+  },
+  "author": "knaschekin",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/knaschekin/tomita-service/issues"
+  },
+  "homepage": "https://github.com/knaschekin/tomita-service#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "tomita-parser": "0.0.3"
+  }
+}
