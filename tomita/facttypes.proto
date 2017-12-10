@@ -6,4 +6,6 @@ message FactType: NFactType.TFact
 	optional string FailAction = 1;
 	optional string TargetObject = 2;
 	optional string TargetProduct = 3;
+	optional string LiveAction = 4;
+	optional string BadWord = 5;
 }
