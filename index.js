@@ -1,19 +1,23 @@
 const Express = require('express');
 const Tomita = require('./wrapper/index.js');
 const path = require('path');
+var bodyParser = require('body-parser');
+var data2xml = require("data2xml");
+var convert2xml = data2xml({'attrProp': '\$', 'null': 'closed', 'undefined': 'closed'});
 
 const app = new Express();
 
-console.log(path.resolve(__dirname, 'tomita', 'config.proto'));
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.get('/', (req, response) => {
+app.post('/', (req, response) => {
     new Tomita(
-        'Добрый день! Не могу оформить договоры КАСКО, поле улица заблокировано, ошибка при оформлении.',
+        req.body.text,
         path.resolve(__dirname, 'tomita', 'config.proto'),
         function (err, res) {
-            console.log(err);
             console.log(res);
-            response.send(res);
+			response.set('Content-Type', 'text/xml');
+			response.send(convert2xml("facts", res));
         }
     );
 });
